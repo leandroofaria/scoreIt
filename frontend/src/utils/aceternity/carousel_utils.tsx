@@ -1,5 +1,5 @@
 import { CarouselItem } from "@/utils/aceternity/AnimatedTestimonials";
-import { fetchMovies } from "./service_popular_movies";
+import { fetchMovies } from "../../services/service_popular_movies";
 
 export async function loadRandomCarouselItems(): Promise<CarouselItem[]> {
   const allMovies = await fetchMovies();

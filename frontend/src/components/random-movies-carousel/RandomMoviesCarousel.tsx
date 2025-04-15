@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatedCarousel } from "@/utils/aceternity/AnimatedTestimonials";
-import { loadRandomCarouselItems } from "@/services/carousel_utils";
+import { loadRandomCarouselItems } from "@/utils/aceternity/carousel_utils";
 import { CarouselItem } from "@/utils/aceternity/AnimatedTestimonials";
 
 export const RandomMoviesCarousel = () => {

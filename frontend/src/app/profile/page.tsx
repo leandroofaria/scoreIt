@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Container } from "@/components/container";
 import { ProtectedRoute } from "@/components/protected-route/ProtectedRoute";
-import { fetchMembers, updateMember } from "@/services/member.service";
+import { fetchMembers, updateMember } from "@/services/service_member";
 import { createPortal } from "react-dom";
 import { FiEdit2 } from "react-icons/fi";
 import ProfileEditModal from "@/components/profile-edit-modal/ProfileEditModal";

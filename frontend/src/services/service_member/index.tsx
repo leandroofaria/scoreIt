@@ -8,7 +8,7 @@ const fetchMembers = async (useJwtId = false) => {
     const token = localStorage.getItem('authToken'); 
     let url = 'http://localhost:8080/member/get';
 
-    // Se useJwtId for true, tenta decodificar o ID do JWT
+    
     if (useJwtId && token) {
         const decoded = jwtDecode<CustomJwtPayload>(token);
         const memberId = decoded.id;
@@ -48,7 +48,7 @@ const updateMember = async (memberId: string, payload: any) => {
         throw new Error('Erro ao atualizar perfil');
     }
 
-    const updatedMember = await response.json(); // Retorna o membro atualizado
+    const updatedMember = await response.json(); 
     return updatedMember;
 };
 
