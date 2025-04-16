@@ -1,10 +1,10 @@
-// src/app/layout.tsx
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/header";
-import PageTransition from "@/components/page-transition/PageTransition";
 import { AuthProvider } from "@/context/AuthContext";
-import { MemberProvider } from "@/context/MemberContext"; // ✅ importe aqui
+import { MemberProvider } from "@/context/MemberContext";
+import { TabProvider } from "@/context/TabContext"; 
 
 export const metadata: Metadata = {
   title: "ScoreIt",
@@ -17,12 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body>
         <AuthProvider>
           <MemberProvider>
-            <Header />
-            {children}
+            <TabProvider>
+              <Header />
+              {children}
+            </TabProvider>
           </MemberProvider>
         </AuthProvider>
       </body>
