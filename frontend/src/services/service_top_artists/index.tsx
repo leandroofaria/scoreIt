@@ -1,4 +1,4 @@
-import { Artist } from "@/types/Artist"
+import { Artist } from "@/types/Artist";
 
 export const fetchTopArtists = async (): Promise<Artist[]> => {
   try {
@@ -8,7 +8,7 @@ export const fetchTopArtists = async (): Promise<Artist[]> => {
       return [];
     }
 
-    const response = await fetch("http://localhost:8080/music/top-artists?page=1&limit=10", {
+    const response = await fetch("http://localhost:8080/lastfm/top-artists?page=1&limit=10", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -18,7 +18,17 @@ export const fetchTopArtists = async (): Promise<Artist[]> => {
       throw new Error(`Erro ao buscar top artistas: ${response.status}`);
     }
 
-    const data: Artist[] = await response.json();
+    const rawData = await response.json();
+
+    const data: Artist[] = rawData.map((item: any) => ({
+      id: item.id,
+      name: item.name,
+      imageUrl: item.imageUrl,
+      listeners: item.listeners,
+      playcount: item.playcount,
+      mbid: item.mbid,
+    }));
+
     return data;
   } catch (error) {
     console.error("Erro ao buscar top artistas:", error);
