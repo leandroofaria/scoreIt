@@ -9,6 +9,7 @@ import NowPlayingCarouselSection from "@/components/now-playing-carousel/NowPlay
 import TopArtistsCarouselSection from "@/components/top-artists-carousel/TopArtistsCarousel";
 import { MovieList } from "@/components/movies-list/MovieList";
 import { RandomMoviesCarousel } from "@/components/random-movies-carousel/RandomMoviesCarousel";
+import RecentsAlbumCarousel from "@/components/recents-album-carousel/RecentsAlbumCarousel"; // ✅ import certo
 import Link from "next/link";
 
 export default function Home() {
@@ -47,7 +48,10 @@ export default function Home() {
                 <MovieList />
               </>
             ) : (
-              <TopArtistsCarouselSection />
+              <>
+                <TopArtistsCarouselSection />
+                <RecentsAlbumCarousel />
+              </>
             )}
           </>
         ) : (
